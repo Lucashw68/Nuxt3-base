@@ -10,10 +10,10 @@
         {{ error.statusCode }}
       </h1>
       <h1 class="text-center text-xl truncate font-black text-error pb-6">
-        {{ error.statusMessage }}
+        {{ error.statusMessage || "Internal error" }}
       </h1>
     </div>
-    <button class="btn bg-base-300" @click="handleError">Return to home</button>
+    <button class="btn bg-base-300" @click="handleError">Return home</button>
   </div>
 </template>
 

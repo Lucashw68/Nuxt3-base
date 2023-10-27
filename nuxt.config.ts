@@ -6,52 +6,24 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Nuxt 3 | Boilerplate',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Nuxt 3 boilerplate to quickly begin' },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Nuxt 3 | Boilerplate',
-        },
-        { hid: 'og:url', property: 'og:url', content: 'OpenGraph Page URL' },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'Nuxt 3 boilerplate to quickly begin',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: '/og.png',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Nuxt 3 | Boilerplate',
-        },
-        {
-          hid: 'twitter:url',
-          name: 'twitter:url',
-          content: 'Twitter Page URL',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: 'Nuxt 3 boilerplate to quickly begin',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: '/og.png',
-        },
-      ],
+      title: 'Nuxt Template',
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' }
   },
 
-  plugins: [
-    { src: '~/plugins/vue-toastification.client.js', mode: 'client' }
+  build: { transpile: ['vue-toastification'] },
+
+  css: [
+    "~/assets/css/animations.css",
+    'vue-toastification/dist/index.css'
   ],
+
+  imports: {
+    dirs: [
+      'composables/**'
+    ]
+  },
 
   modules: [
     '@nuxtjs/color-mode',
@@ -59,6 +31,10 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
+  ],
+
+  plugins: [
+    { src: '~/plugins/vue-toastification.client.js', mode: 'client' }
   ],
 
   // #########################
@@ -71,12 +47,17 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
-  tailwindcss: {
-    cssPath: '~/assets/css/main.css',
+  googleFonts: {
+    download: true,
+    families: {
+      Inter: true,
+      Poppins: true
+    }
   },
 
   postcss: {
     plugins: {
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -123,5 +104,9 @@ export default defineNuxtConfig({
       navigateFallbackAllowlist: [/^\/$/],
       type: 'module',
     },
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
   },
 })

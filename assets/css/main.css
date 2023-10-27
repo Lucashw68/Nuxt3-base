@@ -1,3 +1,129 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Poppins', monospace;
+}
+
+:root {
+  overflow-y: auto !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  transition: background-color 1s;
+}
+
+/* ----------------------------------------------
+ * Scroll bar
+ * ---------------------------------------------- */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lightgrey;
+}
+
+/* ----------------------------------------------
+ * Layout transitions
+ * ---------------------------------------------- */
+
+ .layout-enter-active,
+ .layout-leave-active {
+   transition: opacity .4s
+ }
+ .layout-enter-from,
+ .layout-leave-to {
+   opacity: 0;
+ }
+
+ /* ----------------------------------------------
+  * Page transitions
+  * ---------------------------------------------- */
+
+ .page-enter-active,
+ .page-leave-active {
+   transition: all 0.2s;
+ }
+ .page-enter-from,
+ .page-leave-to {
+   opacity: 0;
+   filter: blur(1rem);
+ }
+
+ /* ----------------------------------------------
+  * Component transitions
+  * ---------------------------------------------- */
+
+ .v-enter-active{
+   transition: opacity 1s ease;
+ }
+
+ .v-leave-active {
+   opacity: 0;
+   position: absolute;
+ }
+
+ .v-enter-from,
+ .v-leave-to {
+   opacity: 0;
+ }
+
+/* ----------------------------------------------
+* List transitions
+* ---------------------------------------------- */
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
+}
+
+/* ----------------------------------------------
+ * Animations
+ * ---------------------------------------------- */
+
+ @layer utilities {
+
+  /* HEARTBEAT */
+  .heartbeat {
+    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+  }
+
+  /* WOBBLE */
+  .wobble-top {
+    -webkit-animation: wobble-hor-top 0.8s both;
+            animation: wobble-hor-top 0.8s both;
+  }
+}
