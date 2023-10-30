@@ -5793,10 +5793,10 @@ nuxi@^3.9.1:
   optionalDependencies:
     fsevents "~2.3.3"
 
-nuxt-icon@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/nuxt-icon/-/nuxt-icon-0.6.0.tgz#b7b2b894b95feaf75aa4a2e0fd647c35b1d924cc"
-  integrity sha512-yFhdd1inv8z4soCF8HZphVMn0wJJN+5m+ZHs1QQblrdxXJDV7UuZeTjN6Fy8VDHfWbZJm6coXSQrK483kU+ipA==
+nuxt-icon@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/nuxt-icon/-/nuxt-icon-0.6.1.tgz#2074a24d63c26353cc64e2a0e6bfdd7f46e952d1"
+  integrity sha512-a4/MEmbP2hXB0sLWBqevC+569FADEMs+VfYJ6nzbktUSJY57/PoHyen0PtqAAkMjGGhHgDVHAcjy5RCJyYZRYg==
   dependencies:
     "@iconify/vue" "^4.1.1"
     "@nuxt/kit" "^3.8.0"
